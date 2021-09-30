@@ -44,4 +44,34 @@ permut("abc","",0)
 console.log(ar);
 
 
+3.Split the binary string into substrings with equal number of 0s and 1s
+
+let str="0100110101000111"
+let prev=str[0]
+let countPrev=1
+let count=0
+function bss(s){
+
+    for(let i=1;i<s.length;i++){
+        if(s[i]==prev){
+              countPrev++
+              prev=s[i]
+             
+              if(countPrev==0){
+                count++
+            }
+        }else{
+            countPrev--
+           
+            if(countPrev==0){
+                count++
+            }
+        }
+    }
+
+}
+bss(str)
+console.log(count);
+
+
 
