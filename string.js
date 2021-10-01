@@ -75,3 +75,33 @@ console.log(count);
 
 
 
+4.paranthesis checker
+let str="[())]"
+let arr=[]
+let count=0
+function para(s){
+
+for(let i=0;i<s.length;i++){
+    if(s[i]=='{'||s[i]=="["||s[i]=="("){
+        
+     arr.push(s[i])
+     count++
+     
+    }else if(s[i]=='}' && arr[count-1]=="{" || s[i]==']'&& arr[count-1]=="[" ||s[i]==')'&& arr[count-1]=="(" ){
+        arr.pop(arr[count-1])
+        count--
+    }else{
+        return "no way"
+    }
+}
+}
+
+
+function check(){
+    if(para(str)=="no way"){
+        console.log("false");
+    }else{
+        console.log("true");
+    }
+}
+check()
