@@ -14,14 +14,14 @@ newfin+=init.charAt(0)
 let newInit=init.substring(1,init.length)
 subseq(newInit,newfin)
 subseq(newInit,fin)
-
 }
-
 subseq("abc","")
-
 console.log(ar);
 
+
+
 2.find the permuation of the string "abc"
+
 let str="abc"
 let final=""
 let ar=[]
@@ -110,10 +110,6 @@ check()
 
 5.pattern searching
 
-let txt= "THIS IS A TEST TEXT"
-let pat = "TEST"
-
-
 function check(txt,pat){
 let a=[]
 
@@ -122,3 +118,23 @@ console.log(txt.indexOf(pat));
 }
 }
 check(txt,pat)
+
+
+
+5.pattern searching  
+
+the above solution cant find if a pattern is repeating multiple time so regex is the best way to find a repeating pattern
+
+let txt= "THIS TEST IS TEST A  TEST"
+let pat = "TEST"
+
+
+
+    
+    txt.match(/TEST\1*/g).map(el=>{
+        
+        console.log("found at index of  "+txt.indexOf(el))
+        txt=txt.replace(pat,"")
+    })
+    
+
