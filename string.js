@@ -127,11 +127,7 @@ the above solution cant find if a pattern is repeating multiple time so regex is
 
 let txt= "THIS TEST IS TEST A  TEST"
 let pat = "TEST"
-
-
-
-    
-    txt.match(/TEST\1*/g).map(el=>{
+    txt=txt.match(/TEST\1*/g).forEach(el=>{
         
         console.log("found at index of  "+txt.indexOf(el))
         txt=txt.replace(pat,"")
