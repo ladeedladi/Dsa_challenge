@@ -81,7 +81,7 @@ console.log(howsum(7,[5,3,4]));
 console.log(howsum(300,[7,14]));
 
 
-bestsum
+4.bestsum
 
 function bestSum(target,numbers,memo={}){
     if(target in memo) return memo[target]
@@ -93,7 +93,9 @@ let bestOfSum=null
 for(let num of numbers){
    let remainder=target-num
   let res= bestSum(remainder,numbers)
-  
+
+
+
   if(res!==null){
       let combination=[...res,num]
       if(bestOfSum==null || combination.length<bestOfSum.length){
@@ -110,3 +112,65 @@ return bestOfSum
 console.log(bestSum(8,[2,3,5]));
 console.log(bestSum(8,[1,4,5]));
 console.log(bestSum(100,[1,2,5,25]));
+
+
+
+
+5 .canConstruct
+
+a base condotion -target==' return true
+b find the matching prefix from the wordbank and remove from it
+c if base condition is not met then return false after the for loop
+
+function canContruct(target,wordBank,memo={}){
+if(target==='')return true
+
+if(target in memo)return memo[target]
+for(let word of wordBank){
+    //find the matching prefix from the wrdbank
+    if(target.indexOf(word)==0){
+        //to remove the suffix from target
+        let suffix=target.slice(word.length)
+
+        if(canContruct(suffix,wordBank,memo)===true){
+            memo[target]=true
+            return memo[target]
+        }
+    }
+   
+}
+
+memo[target]=false
+return memo[target]
+
+}
+  
+console.log(canContruct("abcdef",["ab","abc","cd","def","abcd"]));
+console.log(canContruct("eeeeeeeeeeeeeeeeeeeeeeeef",["e","ee","eee","eeeee","eeeeeee"]))
+
+
+
+//6 count construct
+function countContruct(target,wordBank){
+    if(target==='')return 1
+    let count=0
+    
+    for(let word of wordBank){
+        //find the matching prefix from the wrdbank
+        if(target.indexOf(word)===0){
+            //to remove the suffix from target
+
+            let countOfOnes=countContruct(target.slice(word.length),wordBank)
+
+            // console.log(countOfOnes);
+            count+=countOfOnes
+          
+        }
+       
+    }
+    
+ 
+    return count
+    
+    }
+    console.log(countContruct("abcdef",["ab","abc","cd","def","abcd"]));
