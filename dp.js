@@ -79,3 +79,34 @@ return null
 }
 console.log(howsum(7,[5,3,4]));
 console.log(howsum(300,[7,14]));
+
+
+bestsum
+
+function bestSum(target,numbers,memo={}){
+    if(target in memo) return memo[target]
+    if(target===0)return []
+if(target<0)return null
+
+let bestOfSum=null
+
+for(let num of numbers){
+   let remainder=target-num
+  let res= bestSum(remainder,numbers)
+  
+  if(res!==null){
+      let combination=[...res,num]
+      if(bestOfSum==null || combination.length<bestOfSum.length){
+          bestOfSum=combination
+      }
+    }
+
+}
+memo[target]=bestOfSum
+return bestOfSum
+
+
+}
+console.log(bestSum(8,[2,3,5]));
+console.log(bestSum(8,[1,4,5]));
+console.log(bestSum(100,[1,2,5,25]));
