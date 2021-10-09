@@ -149,28 +149,54 @@ console.log(canContruct("abcdef",["ab","abc","cd","def","abcd"]));
 console.log(canContruct("eeeeeeeeeeeeeeeeeeeeeeeef",["e","ee","eee","eeeee","eeeeeee"]))
 
 
-
-//6 count construct
-function countContruct(target,wordBank){
-    if(target==='')return 1
+base case return 1 if the string is mt
+init  a var count and assign it to 0
+find the matching prefix dont return anything just call the fn and storethe value return in the variable count
+so  if the base base is not met it will return 0 else return the count
+6 count construct
+function countContruct(target,wordBank,memo={}){
+   if(target==='')return 1
+    if(target in memo)return memo[target]
     let count=0
-    
-    for(let word of wordBank){
-        //find the matching prefix from the wrdbank
-        if(target.indexOf(word)===0){
-            //to remove the suffix from target
-
-            let countOfOnes=countContruct(target.slice(word.length),wordBank)
-
-            // console.log(countOfOnes);
-            count+=countOfOnes
-          
-        }
-       
-    }
-    
- 
-    return count
-    
+   for(let word of wordBank){
+       if(target.indexOf(word)===0){
+           
+           count+=countContruct(target.slice(word.length),wordBank,memo) 
+       }
+   }
+   memo[target]=count
+   return count
     }
     console.log(countContruct("abcdef",["ab","abc","cd","def","abcd"]));
+    console.log(countContruct("eeeeeeeeeeeeeeeeeeeeeeeef",["e","ee","eee","eeeee","eeeeeee"]))
+
+
+
+
+
+7.all construct.find all the possible solution and add it to the a 2d arrray
+1.base case return [[]] if target is ''
+2.just as prev 
+3 add the words in to targetWays and spread it to add future words and push it into targetWays to get the ultimate result
+else single output will be returned
+function allConstruct(target,wordBank,memo={}){
+
+    if(target==='')return [[]]
+    if(target in memo) return memo[target]
+let result=[]
+    for(let word of wordBank){
+        if(target.indexOf(word)===0){
+            const suffixWays=allConstruct(target.slice(word.length),wordBank,memo)
+            const targetWays=suffixWays.map(way=>[word,...way])
+          //  console.log('targetWays :');
+           result.push(...targetWays)
+        }
+    }
+
+  memo[target]=result
+  return result
+}
+console.log(allConstruct('ppppppppppppppple',['p','p','p','p']));
+console.log(allConstruct('purple',['purp','p','ur','le','purpl']));
+
+
