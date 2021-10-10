@@ -1,4 +1,4 @@
-//1.fibonocci 
+1.fibonocci 
 let cache={}
 const fib=(n)=>{
     if(n in cache)return cache[n]
@@ -27,7 +27,7 @@ const gridTraveler=(m,n,memo={})=>{
 }
 
 
-console.log(gridTraveler(18,18));
+console.log(gridTraveler(3,3));
 
 3.cansum
 
@@ -216,3 +216,24 @@ return table[n]
 }
 console.log(fib(6));
 console.log(fib(50));
+
+
+9 grid traveler
+create a 2d table with array methods and stuff
+iterate though the array and change the values
+finaly return the table[m,n]
+const grid=(m,n)=>{
+
+    const table=Array(m+1).fill().map(()=>Array(n+1).fill(0))
+    table[1][1]=1
+    for(let i=0;i<=m;i++){
+        for(let j=0;j<=n;j++){
+            let current=table[i][j]
+            if(j+1<=n)table[i][j+1]+=current
+            if(i+1<=m)table[i+1][j]+=current
+        }
+    }
+    return table[m][n]
+}
+    
+console.log(grid(3,3));
