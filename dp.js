@@ -241,7 +241,11 @@ console.log(grid(3,3));
 
 
 10 can sum tabulation
-
+1.creating table and size the table-taken targetSum to construct array with it
+2.initialize the table with default values means all false
+3.seed the trivial answer into the table means add a basecase into the table here table[0]=true
+4.iterate and change the futther vakues withValue
+return the value in the final index of the table
 const canSum=(target,numbers)=>{
 const table=Array(target+1).fill(false)
 
@@ -257,3 +261,5 @@ for(let i=0;i<=target+1;i++){
 return table[target]
 }
 console.log(canSum(7,[5,3,4]));
+console.log(canSum(300,[7,14]));
+//
