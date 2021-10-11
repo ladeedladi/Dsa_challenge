@@ -237,3 +237,23 @@ const grid=(m,n)=>{
 }
     
 console.log(grid(3,3));
+
+
+
+10 can sum tabulation
+
+const canSum=(target,numbers)=>{
+const table=Array(target+1).fill(false)
+
+table[0]=true
+for(let i=0;i<=target+1;i++){
+    for(let j=0;j<numbers.length;j++){
+        if(table[i]===true && table[i+numbers[j]]<=target+1){
+            table[i+numbers[j]]=true
+        }
+    }
+}
+
+return table[target]
+}
+console.log(canSum(7,[5,3,4]));
