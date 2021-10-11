@@ -262,4 +262,23 @@ return table[target]
 }
 console.log(canSum(7,[5,3,4]));
 console.log(canSum(300,[7,14]));
-//
+altenative and efficient method
+const canSum=(target,numbers)=>{
+    const table=Array(target+1).fill(false)
+    
+    table[0]=true
+    for(let i=0;i<target;i++){
+        if(table[i]===true){
+        for(let num of numbers){
+            if( table[i+num]<=target+1){
+
+                table[i+num]=true
+            }
+            }
+        }
+    }
+    console.log(table);
+    return table[target]
+    }
+    console.log(canSum(7,[5,3,4]));
+    console.log(canSum(300,[7,14]));
