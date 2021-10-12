@@ -282,3 +282,56 @@ const canSum=(target,numbers)=>{
     }
     console.log(canSum(7,[5,3,4]));
     console.log(canSum(300,[7,14]));
+
+11  howSum tabulation
+ogics are  just like bestsum below
+const howSum=(target,numbers)=>{
+    const table=Array(target+1).fill(null)
+    table[0]=[]
+    
+    for(let i=0;i<target;i++){
+        if(table[i]!==null){
+            for(let num of numbers){
+                //alternative
+                // if(table[i+num]<=target){
+               
+
+                 table[i+num]=[...table[i],num ]
+            //  }
+          }
+      }
+    }
+ return table[target]
+}
+console.log(howSum(7,[5,3,4]));
+console.log(howSum(300,[7,14]));
+
+//12 bestSum Tabulationd 
+
+1.initialize the values to null
+2.base case table[0]=[] 
+3.iterate through the array and find the other values 
+4.to find the value in the array with min length.
+4.1 make a condition to find the min length. if its not the current value 
+then change it.the condition to check the min value is table[i+num].length>combination.length
+4.2 but thats not enough it will through an err if table[i+num] is null .so to execute the
+if statement even if its a null another condition is added and made it OR with the current condition
+const bestSum=(target,numbers)=>{
+    const table=Array(target+1).fill(null)
+
+table[0]=[]
+
+for(let i=0;i<=target;i++){
+    if(table[i]!=null){
+        for(let num of numbers){
+           const combination= [...table[i],num]
+           if(!table[i+num] || table[i+num].length>combination.length){
+
+               table[i+num]=combination
+           }
+        }
+    }
+}
+return table[target]
+}
+console.log(bestSum(8,[2,3,5]));
