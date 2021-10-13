@@ -338,9 +338,13 @@ console.log(bestSum(8,[2,3,5]));
 
 
 //13. canConstruct tabulation
-
+1.initialize all the values in to false 
+2. basevalue table[0] true
+3.iterate through the table find the other values too
+3.1 find the matching str from the word bank and check it and then made the word.length position into true
+3.2 return the table[target]
 const canConstruct=(target,wordBank)=>{
-
+ 
 const table=Array(target.length+1).fill(false)
 table[0]=true
 
@@ -356,3 +360,24 @@ for(let i=0;i<=target.length;i++){
 return table[target.length]
 }
 console.log(canConstruct("abcdef",["ab","abc","cd","def","abcd"]));
+
+
+//14 countConstruct
+//login same as before
+const countConstruct=(target,wordBank)=>{
+    const table=Array(target.length+1).fill(0)
+    table[0]=1
+    for(let i=0;i<=target.length;i++){
+        if(table[i]!=0){
+            for(let word of wordBank){
+                if(target.slice(i,i+word.length)===word){
+                    // console.log("Sfsd");
+                    table[i+word.length]+=table[i]
+                }
+            }
+        }
+    }
+ return table[target.length]
+}
+console.log(countConstruct("abcdef",["ab","abc","cd","def","abcd"]));
+console.log(countConstruct("purple",["purp","p","ur","le","purpl"]));
