@@ -381,3 +381,34 @@ const countConstruct=(target,wordBank)=>{
 }
 console.log(countConstruct("abcdef",["ab","abc","cd","def","abcd"]));
 console.log(countConstruct("purple",["purp","p","ur","le","purpl"]));
+1.intialize all the values by mt array by mapping not only by fill method
+2.base value table[0]=[[]]
+3.iterate thought the array 
+4.here checking if its a array or not have no point. so when the word is matching 
+add the word with the array at the table position[i] and push it to the table[i+word.length]
+
+const allConstruct=(target,wordBank)=>{
+
+const table=Array(target.length+1).fill().map(()=>[])
+
+table[0]=[[]]
+for(let i=0;i<=target.length;i++){
+    for(let word of wordBank){
+        if(target.slice(i,i+word.length)===word){
+            const newCombination=table[i].map(el=>[...el,word])
+            table[i+word.length].push(...newCombination)
+        }
+    }
+}
+console.log(table);
+return table[target.length]
+}
+console.log(allConstruct("abcdef",["ab","abc","cd","def","abcd","ef","c"]));
+
+
+
+
+// let a=[['abcd']]
+// let w="jiop"
+// let b=a.map(el=>[...el,w])
+// console.log(b);
