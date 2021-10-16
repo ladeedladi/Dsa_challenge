@@ -157,3 +157,24 @@ console.log(editDistance("geekdo","geekpu"));
 
 
 
+  LEETCODE
+1769. Minimum Number of Operations to Move All Balls to Each Box
+brute force
+
+const moveBalls=(box,numbers)=>{
+
+for(let i=0;i<box.length;i++){
+    let count=0
+    for(let j=0;j<box.length;j++){
+        if(i!=j && box[j]==1){
+            count=count+Math.abs(j-i)
+        }
+    }
+    numbers.push(count)
+}
+return numbers
+}
+console.log(moveBalls("110",[]));
+console.log(moveBalls("001011",[]));
+
+
