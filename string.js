@@ -176,5 +176,35 @@ return numbers
 }
 console.log(moveBalls("110",[]));
 console.log(moveBalls("001011",[]));
+let arr=Array(26).fill(0)
+let s="ababcbacadefegdehijhklij"
+
+for(let i=0;i<s.length;i++){
+    arr[s.charCodeAt(i)-s.charCodeAt(0)]=i
+}
+console.log(arr[s.charCodeAt(0)-s.charCodeAt(0)]);
 
 
+
+let s = "()))(("
+function BalanceParanthesis(){
+
+    let arr=[]
+       let count=0
+       for(let i=0;i<s.length;i++){
+           if(s[i]==='('){
+               arr.push(s[i])
+               count++
+           }else if(s[i]===')' && arr[count-1]=="("){
+               arr.pop()
+               count--
+           }else{
+               arr.push(s[i])
+               count++
+           }
+       }
+   
+     
+       return arr.length
+}
+BalanceParanthesis()
