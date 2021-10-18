@@ -182,8 +182,7 @@ let s="ababcbacadefegdehijhklij"
 for(let i=0;i<s.length;i++){
     arr[s.charCodeAt(i)-s.charCodeAt(0)]=i
 }
-console.log(arr[s.charCodeAt(0)-s.charCodeAt(0)]);
-
+console.log(arr);
 
 
 let s = "()))(("
@@ -208,3 +207,23 @@ function BalanceParanthesis(){
        return arr.length
 }
 BalanceParanthesis()
+let a=[]
+function partitionLabel(str){
+    let arr=Array(26).fill(0)
+    for(let i=0;i<str.length;i++){
+        arr[str.charCodeAt(i)-str.charCodeAt(0)]=i
+    }
+let start=0
+let end=0
+
+for(let i=0;i<str.length;i++){
+end=Math.max(end,arr[str.charCodeAt(i)-str.charCodeAt(0)])
+if(end==i){
+a.push(end-start+1)
+start=end+1
+}
+}
+return a
+}
+console.log(partitionLabel("ababcbacadefegdehijhklij"));
+partitionLabel("ababcbacadefegdehijhklij")
