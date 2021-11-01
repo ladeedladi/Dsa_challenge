@@ -29,12 +29,12 @@
 //     return profit
 // };
 //or
-//
-let prices = [7,1,5,3,6,4]
-let minPro=Number.MAX_VALUE
-let maxPro=0
-for(let i=0;i<prices.length;i++){
-minPro=Math.min(minPro,prices[i])
-maxPro=Math.max(maxPro,prices[i]-minPro)
-}
-console.log(maxPro);
+// var maxProfit = function(prices) {
+//     let minPro=Number.MAX_VALUE
+//     let maxPro=0
+//     for(let i=0;i<prices.length;i++){
+//         minPro=Math.min(minPro,prices[i])
+//         maxPro=Math.max(maxPro,prices[i]-minPro)
+//     }
+//     return maxPro
+// };
