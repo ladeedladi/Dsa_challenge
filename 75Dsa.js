@@ -38,3 +38,15 @@ var maxProfit = function(prices) {
     }
     return maxPro
 };
+3. Contains Duplicate(.217)
+
+var containsDuplicate = function(nums) {
+    let set =new Set()
+    for(let num of nums){
+        if(set.has(num)){
+            return true
+        }
+        set.add(num)
+    }
+      return false
+  };
