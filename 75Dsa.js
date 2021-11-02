@@ -50,3 +50,43 @@ var containsDuplicate = function(nums) {
     }
       return false
   };
+let nums=[1,2,3,4]
+let arr=[]
+let product=1
+let count=0
+for(let i=0;i<nums.length;i++){
+    if(nums[i]==0){
+        count++
+    }
+}
+if(count===nums.length){
+    let a=Array(nums.length).fill(0)
+    console.log(a);
+}
+
+
+for(let i=0;i<nums.length;i++){
+
+    for(let j=0;j<nums.length;j++){
+       if(j!==i){
+           product*=nums[j]
+       }
+       
+    }
+  console.log(product);
+  arr.push(product)
+  product=1
+}
+console.log(arr);
+
+5.max SubArray
+let nums=[-1]
+console.log(nums.length);
+let max=Number.NEGATIVE_INFINITY
+let Maxsum=Number.NEGATIVE_INFINITY
+console.log(max);
+for(let i=0;i<nums.length;i++){
+max=Math.max(nums[i],max+nums[i])
+Maxsum=Math.max(Maxsum,max)
+console.log(Maxsum);
+}
