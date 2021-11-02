@@ -90,3 +90,19 @@ max=Math.max(nums[i],max+nums[i])
 Maxsum=Math.max(Maxsum,max)
 console.log(Maxsum);
 }
+6. max product subArray
+let nums=
+[-1,-2,-9,-6]
+let min=nums[0]
+let max=nums[0]
+let Maxsum=nums[0]
+for(let i=1;i<nums.length;i++){
+    let temp=max*nums[i]
+max=Math.max(nums[i],max*nums[i],min*nums[i])
+
+min=Math.min(nums[i],nums[i]*min,temp)
+
+Maxsum=Math.max(Maxsum,max)
+}
+
+console.log(Maxsum);
