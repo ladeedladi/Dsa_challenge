@@ -106,3 +106,46 @@ Maxsum=Math.max(Maxsum,max)
 }
 
 console.log(Maxsum);
+
+
+// 7. Find Minimum in Rotated Sorted Array(153.)
+let  nums = [4,5,6,7,0,1,2]
+let target = 2
+var search = function(nums, target) {
+  let left=0
+  let right=nums.length-1
+  while(left<right){
+      const mid=Math.floor((left+right)/2)
+      if(nums[mid]>nums[right]){
+          left=mid+1
+      }else{
+          right=mid
+      }
+  }
+
+  let start=left
+  left=0
+  right=nums.length-1
+  if(target>= nums[start]  && target<=nums[right]){
+      left=start
+  }else{
+      right=start
+  }
+
+
+while(left<=right){
+    const mid=Math.floor((left+right)/2)
+    if(nums[mid]==target){
+        return mid
+    }else if(nums[mid]>target){
+     right=mid-1
+    }else{
+        left=mid+1
+    }
+}
+return -1
+}
+console.log(search(nums,target)
+);
+
+
