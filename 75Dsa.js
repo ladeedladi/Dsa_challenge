@@ -149,3 +149,31 @@ console.log(search(nums,target)
 );
 
 
+//8 3Sum(15)
+let nums = [-1,0,1,2,-1,-4]
+var threeSum = function(nums) {
+    if(nums.length===1)return []
+    let res=[]
+    let arr=nums.sort((a,b)=>a-b)
+    for(let i=0;i<=nums.length-3;i++){
+                if (arr[i] === arr[i - 1]) continue
+
+        let l=i+1
+        let r=nums.length-1
+        while(l<r){
+            let sum=arr[i]+arr[l]+arr[r]
+            if(sum<0)l++
+            else if(sum>0)r--
+            else if(arr[i]!==arr[l]!==arr[r]){
+                let a=[]
+                a.push(arr[i],arr[l],arr[r])
+                res.push(a)
+                l++
+                r--
+            }
+        }
+    }
+    let uniqueArray = Array.from(new Set(res.map(JSON.stringify)), JSON.parse)
+    return uniqueArray
+};
+
