@@ -200,3 +200,35 @@ let  height = [1,2]
                 }
             }
         console.log(maxsum);
+
+
+
+//10 Count Items Matching a Rule(1773)
+ var countMatches = function(items, ruleKey, ruleValue) {
+    let count=0
+    if(ruleKey=="type"){
+       for(let item of items){
+      if(item[0]==ruleValue){
+          count++
+      }
+    }
+    return count 
+    }
+        if(ruleKey=="color"){
+       for(let item of items){
+      if(item[1]==ruleValue){
+          count++
+      }
+    }
+    return count 
+    }
+        if(ruleKey=="name"){
+       for(let item of items){
+      if(item[2]==ruleValue){
+          count++
+      }
+    }
+    return count 
+    }
+    
+};
