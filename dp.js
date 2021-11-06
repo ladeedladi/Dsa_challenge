@@ -412,3 +412,15 @@
 // // let w="jiop"
 // // let b=a.map(el=>[...el,w])
 // // console.log(b);
+
+while(l<r){
+    if(height[l]<height[r]){
+    let sum=height[l]*(r-1)
+     maxsum=Math.max(maxsum,sum)
+    l++
+    }else{
+        let sum=height[r]*(r-l)
+     maxsum=Math.max(maxsum,sum)
+            r--
+    }
+}

@@ -177,3 +177,26 @@ var threeSum = function(nums) {
     return uniqueArray
 };
 
+//9  Container With Most Water(11)
+
+let  height = [1,2]
+
+ let l=0
+        let r=height.length-1
+            let maxsum=0
+            while(l<r){
+                if(height[l]<height[r]){
+                // let sum=Math.min(height[l],height[r])
+                let sum=height[l]*(r-l)
+                 maxsum=Math.max(maxsum,sum)
+                //  console.log("up"+maxsum);
+                l++
+                }else{
+                 let sum=height[r]*(r-l)
+                 console.log(sum);
+                 maxsum=Math.max(maxsum,sum)
+                //  console.log("down"+maxsum);
+                        r--
+                }
+            }
+        console.log(maxsum);
