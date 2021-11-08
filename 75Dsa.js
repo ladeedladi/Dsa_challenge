@@ -232,3 +232,45 @@ let  height = [1,2]
     }
     
 };
+
+let arr=[4 ,2, 3 ,-4, 3, -3]
+let maxProduct=0
+function nums(arr){
+	let left=0
+	let right=arr.length-1
+while(left<right){
+	if(arr[left]>arr[right]){
+		maxProduct=Math.max(maxProduct,arr[left]*arr[right])
+		left++
+	}else{
+		maxProduct=Math.max(maxProduct,arr[left]*arr[right])
+		right--
+
+	}
+}
+	return maxProduct
+}
+console.log(nums(arr)
+);
+
+
+
+
+LINKED LIST   
+
+1.reverse a linked list(206)
+
+
+var reverseList = function(head) {
+    let p=head
+  let prev=null
+  let temp=null
+  while(p){
+      temp=p.next
+      p.next=prev
+      prev=p
+      p=temp
+      
+  }
+   return prev
+};
