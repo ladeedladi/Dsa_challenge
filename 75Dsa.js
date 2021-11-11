@@ -386,3 +386,48 @@ console.log(findDuplicate());
 
 
 
+//5 reorder linked list (143)
+
+ var reorderList = function(head) {
+    if(head==null || head.next==null)return 
+    
+    let fastpointer=head
+    let slowpointer=head
+    let l1=head
+   let prev=null
+    while(fastpointer!==null && fastpointer.next!==null){
+        prev=slowpointer
+        slowpointer=slowpointer.next
+        fastpointer=fastpointer.next.next
+    }
+    prev.next=null
+   
+    let curr=slowpointer
+    let previos=null
+    while(curr!=null){
+        let temp=curr.next
+        curr.next=previos
+        previos=curr
+        curr=temp
+        
+    }
+    
+    
+    while(l1!=null){
+        let l1Next=l1.next
+        let l2Next=previos.next
+        
+        l1.next=previos
+        
+        if(l1Next==null){
+            break;
+        }
+        previos.next=l1Next
+        
+        l1=l1Next
+        previos=l2Next
+    }
+    
+   
+};
+
