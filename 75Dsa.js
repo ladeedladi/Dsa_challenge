@@ -463,3 +463,28 @@ var mergeKLists = function(lists) {
      
      return a.next
  };
+
+java solution
+
+class Solution {
+   public ListNode mergeKLists(ListNode[] lists) {
+       PriorityQueue<Integer> minHeap=new PriorityQueue<Integer>();
+       
+       for(ListNode head:lists){
+           while(head!=null){
+               minHeap.add(head.val);
+               head=head.next;
+           }
+       }
+          
+       ListNode l1=new ListNode(-1);
+       ListNode l2=l1;
+           
+           while(!minHeap.isEmpty()){
+               l2.next= new ListNode(minHeap.remove());
+               l2=l2.next;
+           }
+           
+           return l1.next;
+   }
+}
