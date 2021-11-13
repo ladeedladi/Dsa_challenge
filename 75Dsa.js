@@ -431,3 +431,35 @@ console.log(findDuplicate());
    
 };
 
+
+
+6  Merge k Sorted Lists(23)
+
+var mergeKLists = function(lists) {
+   let sortedLists=[]
+   let current=[]
+ 
+   for(let i=0;i<lists.length;i++){
+       
+       current=lists[i]
+       
+       while(current){
+           sortedLists.push(current.val)
+           current=current.next
+       }
+   }
+    
+     sortedLists.sort((a,b)=>a-b)
+     
+     // console.log(sortedLists)
+     let a=new ListNode(0)
+     
+     let arr=a
+     
+     for(let i=0;i<sortedLists.length;i++){
+         arr.next= new ListNode(sortedLists[i])
+         arr=arr.next
+     }
+     
+     return a.next
+ };
