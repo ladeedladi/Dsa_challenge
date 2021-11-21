@@ -1,0 +1,11 @@
+1.bitwise or of subarays
+class Solution:
+ def subarrayBitwiseORs(self, arr: List[int]) -> int:
+arr=[1,2]
+result=set()
+curr={0}
+for i in arr:
+    curr={i} | { i | j for j in curr}
+    result|=curr
+print(len(result))
+
