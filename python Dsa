@@ -31,7 +31,27 @@ while l<r:
     if nums[mid]>nums[mid+1]:
         r=mid
     elif nums[mid]<nums[mid+1]:
-        l=mid+1
-        
+        l=mid+1       
 print(l)
 
+
+
+
+3. Matrix Diagonal Sum(1572)
+mat = [[1,1,1,1],
+       [1,1,1,1],
+       [1,1,1,1],
+       [1,1,1,1]]
+j=len(mat)-1
+sum=0
+for i in range(len(mat)):
+   
+    if [i,i]==[i,j]:
+        sum+=mat[i][i]
+        j=j-1
+        
+    else:
+        sum+=mat[i][i]+mat[i][j]
+        j=j-1
+    print(sum)
+    
