@@ -55,3 +55,19 @@ for i in range(len(mat)):
         j=j-1
     print(sum)
     
+    
+    
+    4.longest substring without repeatation(3) 
+sett=set()
+
+s="afbfacdeejkoi"
+maxm=0
+j=0
+for i in range(len(s)):
+    while (s[i] in sett):
+        sett.remove(s[j])
+        j=j+1
+    print(sett)
+    sett.add(s[i])
+    maxm=max(i-j+1,maxm)
+    print(maxm)
