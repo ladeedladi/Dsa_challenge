@@ -71,3 +71,17 @@ for i in range(len(s)):
     sett.add(s[i])
     maxm=max(i-j+1,maxm)
     print(maxm)
+
+
+5. Minimum Operations to Make the Array Increasing(1827.)
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        sum=0
+        for i in range(len(nums)-1):
+            if nums[i]>=nums[i+1]:
+                sum+=nums[i]-nums[i+1]+1
+                nums[i+1]+=nums[i]-nums[i+1]+1
+        return sum
+                
+            
+        
