@@ -114,4 +114,18 @@ class Solution:
             result+=total
         return result
    
-        
+8.finding subsets of [1,2,3]
+a=[1,2,3]    
+n=len(a)
+
+result=[]
+
+for i in range(1<<n):
+   
+    arr=[]
+    for j in range(n):
+        if ((i & 1<<j)!=0):
+            arr.append(a[j])
+    result.append(arr)
+print(result)
+
