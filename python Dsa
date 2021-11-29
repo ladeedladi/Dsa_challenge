@@ -129,3 +129,20 @@ for i in range(1<<n):
     result.append(arr)
 print(result)
 
+
+9. Find N Unique Integers Sum up to Zero(1304)
+
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        if n==1:
+            return [0]
+        a=[0]*n
+        if(n%2!=0):
+            for i in range(n):
+                a[i]=n//2+i-n+1
+        else:
+             for i in range(n//2):
+                a[i]=i-n//2
+                a[len(a)-1-i]= n//2-i
+        return a
+
