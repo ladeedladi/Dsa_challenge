@@ -160,4 +160,15 @@ class Solution:
         else:
             return 0
         
-
+11. N-Repeated Element in Size 2N Array(961)
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        map={}
+        for i in range(len(nums)):
+            if (nums[i] in map):
+                return nums[i]
+            else:
+                map[nums[i]]=0
+        return 0
+      
+        
