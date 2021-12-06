@@ -259,6 +259,24 @@ for i in range(1,len(nums)):
 reverseArr(nums,count)
 print(nums)
 
+alternate with less time complexity:
 
+    def removeDuplicates(self, nums: List[int]) -> int:
+        def reverseTheArr(nums,end,start=0):
+            
+            while(start<end):
+                nums[start],nums[end]=nums[end],nums[start]
+                start+=1
+                end-=1
+            return nums
+            
+            
+        count=0
+        for i in range(1,len(nums)):
+            if(nums[i]==nums[i-1]):
+                count+=1
+                nums[i-1]=-1
+        nums.sort(reverse=True)
+        # print(nums)
+        reverseTheArr(nums,len(nums)-count-1)
 
-Remove Duplicates from Sorted ArrayRemove Duplicates from Sorted 
