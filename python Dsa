@@ -295,7 +295,7 @@ alternate with less time complexity:
                     i+=1
             while(i==n1 and j<n2):
                 arr.append(nums2[j])
-                j=+1
+                j+=1
             while(j==n2 and i<n1):
                 arr.append(nums1[i])
                 i+=1
