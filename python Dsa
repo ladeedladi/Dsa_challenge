@@ -301,5 +301,30 @@ alternate with less time complexity:
                 i+=1
      
             return ((len(arr)//2)+1)
+alternative to find the median of an array with o(log(m+n))complexity
+def findMedian():
+    a=[1,2,3]
+    b=[4,5,6]
+    if(len(b)<len(a)):
+        a,b=b,a
+    total=len(a)+len(b)
+    half=total//2
+    l=0
+    r=len(a)-1
+    while(True):
+        i=(l+r)//2
+        j=half-i-2
+        aleft=a[i] if(i>=0) else float("-infinity")
+        aright=a[i+1] if((i+1)<len(a)) else float("infinity")
+        bleft=a[j] if(j>=0) else float("-infinity")
+        bright=a[j+1]  if((j+1)<len(a)) else float("infinity")
 
-    
+        if aleft<=bright and bleft<=aright:
+            if total%2:
+                return min(aright,bright)
+            return (max(aleft,bleft)+min(aright,bright))/2
+        elif(aleft>bright):
+            l=i+1
+        else:
+            r=i-1
+print(findMedian())    
