@@ -328,3 +328,14 @@ def findMedian():
         else:
             r=i-1
 print(findMedian())    
+17. Richest Customer Wealth(1672)
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        maxtotal=0
+        for num in accounts:
+            maximum=0
+            for ele in num:
+                maximum+=ele
+            maxtotal=max(maxtotal,maximum)
+        return maxtotal
+
