@@ -342,3 +342,20 @@ class Solution:
             maxtotal=max(maxtotal,maximum)
         return maxtotal
 
+18. Max Increase to Keep City Skyline(807)
+class Solution:
+    def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
+        n=len(grid)
+        result=0
+        max_row_val=[0]*(n)
+        max_col_val=[0]*(n)
+        for i in range(n):
+            for j in range(n):
+                max_row_val[i]=max (max_row_val[i],grid[i][j])
+                max_col_val[j]=max (max_col_val[j],grid[i][j])
+        
+        for i in range(n):
+            for j in range(n):
+                result+=min(max_row_val[i],max_col_val[j])-grid[i][j]
+        return result
+
