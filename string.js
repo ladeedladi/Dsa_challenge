@@ -247,3 +247,14 @@ permutation('',"AAB")
 console.log(res-1);
 
 
+//38. Count and Say
+var countAndSay = function (n) {
+
+    let res = '1'
+    for (let i = 1;i < n;i++) {
+        res = res.replace(/((\d)\2*)/g, '$1-').split('-').map(str => str ? `${str.length}${str[0]}` : '').join('')
+    }
+    console.log(res)
+    return res
+}
+countAndSay(4)
